@@ -1,0 +1,12 @@
+{
+  "name": "hello-docker",
+  "version": "1.0.0",
+  "description": "Simple Docker Node app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"no tests\""
+  },
+  "author": "",
+  "license": "ISC"
+}
