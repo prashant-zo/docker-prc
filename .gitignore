@@ -16,6 +16,6 @@ yarn-error.log*
 dist/
 build/
 
-# Docker (important separation)
+# Docker 
 .dockerignore
 *.log
