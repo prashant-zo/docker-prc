@@ -1,0 +1,21 @@
+FROM node:20-alpine
+
+ARG APP_VERSION=1.0.0
+ARG BUILD_DATE
+
+ENV NODE_ENV=production
+ENV PORT=3000
+
+WORKDIR /app
+
+RUN echo "Build version $(APP_VERSION) on $(BUILD_DATE)"
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE ${PORT}
+
+CMD ["node", "server.js"]
