@@ -5,14 +5,16 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
+RUN adduser --disabled-password --uid 1001 appuser
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+RUN chown -R appuser /app
+
+USER appuser
 
 EXPOSE 5000
-
-RUN useradd -m -u 1001 appuser
-USER appuser
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "app:app"]
