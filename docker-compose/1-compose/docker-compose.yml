@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+
+  client:
+    image: alpine
+    command: sleep 1000
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: secret
